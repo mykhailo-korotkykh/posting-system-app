@@ -13,9 +13,9 @@ export class IssueListComponent implements OnInit, OnDestroy {
   public issues: Issue[] = [];
   public tags: string[] = [];
   public tagsString = '';
-  private _destroyed = new Subject();
   public selectedIssueIndex: number | null = null;
   public isConfirmationModalVisible = false;
+  private _destroyed = new Subject();
 
   constructor(private dataService: DataService) {}
 

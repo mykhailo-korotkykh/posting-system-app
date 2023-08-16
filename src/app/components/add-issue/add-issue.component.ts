@@ -5,9 +5,9 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { v4 as uuidv4 } from 'uuid';
 import { Issue } from 'src/app/models/issue.model';
 import { DataService } from 'src/app/services/data.service';
-import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-add-issue',
@@ -24,15 +24,15 @@ export class AddIssueComponent {
   constructor(private _dataService: DataService) {}
 
   public get title(): AbstractControl | null {
-    return this.issueForm?.get('title') || null;
+    return this.issueForm.get('title') || null;
   }
 
   public get text(): AbstractControl | null {
-    return this.issueForm?.get('text') || null;
+    return this.issueForm.get('text') || null;
   }
 
   public addNewIssue(): void {
-    if (this.issueForm?.valid) {
+    if (this.issueForm.valid) {
       const tagsValue = this.issueForm.get('tags')?.value;
       let tagsArray: string[] = [];
 

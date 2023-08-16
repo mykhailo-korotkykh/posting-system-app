@@ -11,8 +11,8 @@ import { DataService } from 'src/app/services/data.service';
 export class TagFilterComponent implements OnInit, OnDestroy {
   @Output() public filterByTag = new EventEmitter<string>();
   public tagSearch = '';
-  private _destroyed = new Subject();
   public tags: string[] = []; 
+  private _destroyed = new Subject();
 
   constructor(private _dataService: DataService) { }
 
@@ -25,7 +25,7 @@ export class TagFilterComponent implements OnInit, OnDestroy {
     });
   }
 
-  public ngOnDestroy() {
+  public ngOnDestroy(): void {
     this._destroyed.next(true);
     this._destroyed.complete();
   }
