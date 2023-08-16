@@ -1,0 +1,7 @@
+<div class="modal-backdrop" *ngIf="isVisible">
+  <div class="modal-content">
+    <p>Are you sure you want to delete this issue?</p>
+    <button class="confirm-button" (click)="onConfirm()">Yes</button>
+    <button class="dismiss-button" (click)="onDismiss()">No</button>
+  </div>
+</div>

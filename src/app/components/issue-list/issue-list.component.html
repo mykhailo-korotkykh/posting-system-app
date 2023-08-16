@@ -1,0 +1,41 @@
+<div class="tag-filter-container">
+  <app-tag-filter (filterByTag)="onFilterByTag($event)"></app-tag-filter>
+</div>
+<div class="issue-list">
+  <h2>Issues List</h2>
+  <div *ngFor="let issue of issues; let i = index" class="issue">
+    <div *ngIf="!issue.editable">
+      <h3>{{ issue.title }}</h3>
+      <p [innerHTML]="issue.text"></p>
+      <div *ngIf="issue.tags.length > 0">
+        <strong>Tags:</strong>
+        <span *ngFor="let tag of issue.tags" class="tag">{{ tag }}</span>
+      </div>
+    </div>
+    <div *ngIf="issue.editable">
+      <input type="text" [(ngModel)]="issue.title" />
+      <textarea [(ngModel)]="issue.text"></textarea>
+      <div>
+        <strong>Tags:</strong>
+        <input
+          type="text"
+          [(ngModel)]="tagsString"
+          placeholder="Enter tags separated by commas"
+        />
+      </div>
+    </div>
+    <div class="buttons-container">
+      <div class="edit-delete-buttons">
+        <button class="edit-button" (click)="toggleEditMode(i)">
+          {{ issue.editable ? "Save" : "Edit" }}
+        </button>
+        <button class="delete-button" (click)="deleteIssue(i)">Delete</button>
+      </div>
+    </div>
+    <app-confirmation-modal
+      [isVisible]="isConfirmationModalVisible"
+      (confirm)="onConfirm()"
+      (dismiss)="onDismiss()"
+    ></app-confirmation-modal>
+  </div>
+</div>

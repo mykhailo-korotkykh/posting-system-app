@@ -1,0 +1,30 @@
+<div class="add-issue">
+  <h2>Add New Issue</h2>
+  <form [formGroup]="issueForm" (ngSubmit)="addNewIssue()">
+    <div class="input-group">
+      <label>Title:</label>
+      <input type="text" id="title" formControlName="title"/>
+      <div
+        *ngIf="title?.invalid && (title?.dirty || title?.touched)"
+        class="alert alert-danger"
+      >
+        Title is required
+      </div>
+    </div>
+    <div class="input-group">
+      <label>Description:</label>
+      <textarea formControlName="text"></textarea>
+      <div
+        *ngIf="title?.invalid && (title?.dirty || title?.touched)"
+        class="alert alert-danger"
+      >
+        Description is required
+      </div>
+    </div>
+    <div class="input-group">
+      <label>Tags (comma-separated):</label>
+      <input type="text" formControlName="tags" />
+    </div>
+    <button type="submit" [disabled]="!issueForm.valid">Add Issue</button>
+  </form>
+</div>

@@ -1,0 +1,63 @@
+.issue-list {
+    margin-top: 20px;
+  }
+  
+  .issue {
+    margin-bottom: 40px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    position: relative;
+  }
+  
+  .tag {
+    background-color: #28a745;;
+    color: #fff;
+    padding: 2px 6px;
+    margin-left: 5px;
+    border-radius: 3px;
+    font-size: 12px;
+  }
+  
+  .buttons-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .edit-delete-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .edit-button,
+  .delete-button {
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+
+  .edit-button {
+    background-color: #007bff;
+  }
+
+  .delete-button {
+    background-color: #dc3545;
+  }
+  
+  .input-container {
+    margin-top: 10px;
+  }
+  
+  input[type="text"],
+  textarea {
+    width: calc(100% - 40px); /* Изменено: учитываем отступ справа */
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    resize: vertical;
+  }

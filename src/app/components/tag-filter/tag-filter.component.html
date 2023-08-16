@@ -1,0 +1,17 @@
+<div class="tag-filter">
+  <h2>Tag Filter</h2>
+  <div class="input-container">
+    <input
+      type="text"
+      [(ngModel)]="tagSearch"
+      placeholder="Search tag"
+      (input)="searchTags()"
+    />
+    <span class="clear-icon" *ngIf="tagSearch" (click)="clearSearch()">Clear</span>
+  </div>
+  <div class="tag-list">
+    <span class="tag" *ngFor="let tag of tags" (click)="onFilterByTag(tag)">
+      {{ tag }}
+    </span>
+  </div>
+</div>
